@@ -1,14 +1,13 @@
 services:
   minecraft:
-    image: itzg/minecraft-server
+    image: itzg/minecraft-server:java21
     container_name: minecraft-server
-    ports:
-      - "25565:25565"
+    network_mode: host
     environment:
       EULA: "TRUE"
-      VERSION: "LATEST"
-      TYPE: "VANILLA"
-      MEMORY: "2G"
+      VERSION: "1.21.1"
+      TYPE: "FABRIC"
+      MEMORY: "3G"
       DIFFICULTY: "normal"
       OPS: "yourusername"
     volumes:
@@ -16,3 +15,10 @@ services:
     restart: unless-stopped
     stdin_open: true
     tty: true
+
+  playit:
+    image: ghcr.io/playit-cloud/playit-agent:0.17
+    network_mode: host
+    env_file:
+      - .env
+    restart: unless-stopped
