@@ -7,9 +7,9 @@ services:
       EULA: "TRUE"
       VERSION: "1.21.1"
       TYPE: "FABRIC"
-      MEMORY: "3G"
+      MEMORY: "4G"
       DIFFICULTY: "normal"
-      OPS: "yourusername"
+      OPS: "SythFlux"
     volumes:
       - ./minecraft-data:/data
     restart: unless-stopped
